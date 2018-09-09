@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout mTab = (TabLayout) findViewById(R.id.tabs);
         mTab.setupWithViewPager(mViewPager);
+        mTab.getTabAt(0).setIcon(R.drawable.ic_home);
+        mTab.getTabAt(1).setIcon(R.drawable.ic_list);
+        mTab.getTabAt(2).setIcon(R.drawable.ic_mypage);
+        mTab.getTabAt(3).setIcon(R.drawable.ic_more);
 
         try {
             ContentValues values = new ContentValues();

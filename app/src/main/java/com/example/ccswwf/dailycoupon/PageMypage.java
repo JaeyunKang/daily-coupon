@@ -123,7 +123,7 @@ public class PageMypage extends Fragment {
                         String membershipDateString = membershipObject.getString("created_at");
                         Date membershipStartDate = df.parse(membershipDateString);
                         Date membershipEndDate = df.parse(membershipDateString);
-                        membershipEndDate.setMonth(membershipEndDate.getMonth() + 1);
+                        membershipEndDate.setDate(membershipEndDate.getDate() + 30);
                         membership.setStartDate(df_out.format(membershipStartDate));
                         membership.setEndDate(df_out.format(membershipEndDate));
                         membership.setPrice(membershipObject.getInt("price"));

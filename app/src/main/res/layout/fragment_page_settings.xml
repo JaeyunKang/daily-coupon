@@ -33,6 +33,7 @@
                 android:text="버전정보"/>
 
             <TextView
+                android:id="@+id/text_version"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,7 +49,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="2dp"
             android:layout_marginLeft="2dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:background="#CCC"/>
 
         <LinearLayout
@@ -78,10 +79,11 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="2dp"
             android:layout_marginLeft="2dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:background="#CCC"/>
 
         <LinearLayout
+            android:id="@+id/layout_privacy_policy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
@@ -108,7 +110,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="2dp"
             android:layout_marginLeft="2dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:background="#CCC"/>
 
         <LinearLayout
@@ -138,7 +140,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="2dp"
             android:layout_marginLeft="2dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:background="#CCC"/>
 
         <LinearLayout
@@ -168,7 +170,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="2dp"
             android:layout_marginLeft="2dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:background="#CCC"/>
 
         <LinearLayout

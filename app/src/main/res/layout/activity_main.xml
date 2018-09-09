@@ -38,6 +38,10 @@
         android:id="@+id/tabs"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="60dp"
+        android:elevation="4dp"
+        android:background="#FFF"
+        app:tabIndicatorColor="@color/colorPrimary"
+        app:tabTextAppearance="@style/CustomTabText"/>
 
 </RelativeLayout>
