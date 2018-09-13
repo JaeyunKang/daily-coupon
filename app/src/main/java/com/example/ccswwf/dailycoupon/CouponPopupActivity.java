@@ -2,6 +2,7 @@ package com.example.ccswwf.dailycoupon;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -64,8 +65,10 @@ public class CouponPopupActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
+                    final SharedPreferences userInformation = getSharedPreferences("user", 0);
+                    final String userId = userInformation.getString("user_id", "");
                     ContentValues values = new ContentValues();
-                    values.put("user_id", "kjy1341@naver.com");
+                    values.put("user_id", userId);
                     values.put("coupon_id", coupon.getId());
                     CouponUseTask task = new CouponUseTask(values, coupon);
                     task.execute();

@@ -2,6 +2,7 @@ package com.example.ccswwf.dailycoupon;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -123,9 +124,12 @@ public class ShopActivity extends AppCompatActivity {
             mAdapter.add(coupon);
         }
 
+        final SharedPreferences userInformation = getSharedPreferences("user", 0);
+        final String userId = userInformation.getString("user_id", "");
+
         try {
             ContentValues values = new ContentValues();
-            values.put("user_id", "kjy1341@naver.com");
+            values.put("user_id", userId);
             values.put("shop_id", shop.getId());
             CouponCheckTask task = new CouponCheckTask(values);
             task.execute();

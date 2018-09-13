@@ -2,11 +2,11 @@ package com.example.ccswwf.dailycoupon;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -61,7 +61,19 @@ public class CouponAdapter extends RecyclerView.Adapter<CouponViewHolder> {
         } else {
             holder.mCouponReceiveText.setText("쿠폰 바로 받기");
             holder.mCouponReceiveText.setBackgroundResource(R.drawable.round_orange_bg);
-            if (MainActivity.membershipActive == 1) {
+
+            final SharedPreferences userInformation = context.getSharedPreferences("user", 0);
+            final String userId = userInformation.getString("user_id", "");
+
+            if (userId.equals("")) {
+                holder.mCouponReceiveText.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent loginActivity = new Intent(context, LoginActivity.class);
+                        context.startActivity(loginActivity);
+                    }
+                });
+            } else if (PageHome.membershipActive == 1) {
                 holder.mCouponReceiveText.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -75,7 +87,8 @@ public class CouponAdapter extends RecyclerView.Adapter<CouponViewHolder> {
                 holder.mCouponReceiveText.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(context, "멤버십이 등록되지 않았습니다!", Toast.LENGTH_LONG).show();
+                        Intent membershipApplyActivity = new Intent(context, MembershipApplyActivity.class);
+                        context.startActivity(membershipApplyActivity);
                     }
                 });
             }

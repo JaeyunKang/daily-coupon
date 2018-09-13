@@ -1,6 +1,8 @@
 package com.example.ccswwf.dailycoupon;
 
 import android.content.ContentValues;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -27,6 +29,7 @@ public class PageMypage extends Fragment {
     public TextView mNoHistoryText;
     public LinearLayout mApplyMembershipBigLayout;
     public TextView mNumMembershipsText;
+    public LinearLayout mLoginLayout;
 
     private MembershipAdapter mAdapter;
     private RecyclerView mRecyclerView;
@@ -50,6 +53,9 @@ public class PageMypage extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_page_mypage, container, false);
 
+        SharedPreferences userInformation = getActivity().getSharedPreferences("user", 0);
+        String userId = userInformation.getString("user_id", "");
+
         mValidateRangeText = (TextView) view.findViewById(R.id.validate_range);
         mCancleMembershopLayout = (LinearLayout) view.findViewById(R.id.cancel_membership);
         mBillAccountChangeLayout = (LinearLayout) view.findViewById(R.id.change_bill_accont);
@@ -57,6 +63,7 @@ public class PageMypage extends Fragment {
         mNoHistoryText = (TextView) view.findViewById(R.id.no_history);
         mApplyMembershipBigLayout = (LinearLayout) view.findViewById(R.id.apply_membership_big);
         mNumMembershipsText = (TextView) view.findViewById(R.id.num_memberships);
+        mLoginLayout = (LinearLayout) view.findViewById(R.id.login);
 
         mAdapter = new MembershipAdapter();
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_membership);
@@ -65,7 +72,7 @@ public class PageMypage extends Fragment {
 
         try {
             ContentValues values = new ContentValues();
-            values.put("user_id", "kjy1341@naver.com");
+            values.put("user_id", userId);
             MembershipRenderTask task = new MembershipRenderTask(values);
             task.execute();
         } catch (Exception e) {
@@ -73,6 +80,30 @@ public class PageMypage extends Fragment {
         }
 
         mRecyclerView.setAdapter(mAdapter);
+
+        mApplyMembershipLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent membershipApplyActivity = new Intent(getActivity(), MembershipApplyActivity.class);
+                startActivity(membershipApplyActivity);
+            }
+        });
+
+        mApplyMembershipBigLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent membershipApplyActivity = new Intent(getActivity(), MembershipApplyActivity.class);
+                startActivity(membershipApplyActivity);
+            }
+        });
+
+        mLoginLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent loginActivity = new Intent(getActivity(), LoginActivity.class);
+                startActivity(loginActivity);
+            }
+        });
 
         return view;
     }
@@ -104,8 +135,11 @@ public class PageMypage extends Fragment {
 
             try {
                 JSONObject resultObject = new JSONObject(result);
+                SharedPreferences userInformation = getActivity().getSharedPreferences("user", 0);
+                String userId = userInformation.getString("user_id", "");
                 if (resultObject.getInt("exist") == 1) {
                     mApplyMembershipBigLayout.setVisibility(View.GONE);
+                    mLoginLayout.setVisibility(View.GONE);
                     mNoHistoryText.setVisibility(View.GONE);
 
                     JSONArray membershipArray = resultObject.getJSONArray("results");
@@ -149,11 +183,18 @@ public class PageMypage extends Fragment {
                             }
                         }
                     }
-                } else {
+                } else if (!userId.equals("")){
                     mValidateRangeText.setText("이용중인 멤버십이 없습니다");
                     mCancleMembershopLayout.setVisibility(View.GONE);
                     mBillAccountChangeLayout.setVisibility(View.GONE);
                     mApplyMembershipLayout.setVisibility(View.GONE);
+                    mLoginLayout.setVisibility(View.GONE);
+                } else {
+                    mValidateRangeText.setText("로그인 해주세요");
+                    mCancleMembershopLayout.setVisibility(View.GONE);
+                    mBillAccountChangeLayout.setVisibility(View.GONE);
+                    mApplyMembershipLayout.setVisibility(View.GONE);
+                    mApplyMembershipBigLayout.setVisibility(View.GONE);
                 }
             } catch(Exception e) {
                 e.printStackTrace();

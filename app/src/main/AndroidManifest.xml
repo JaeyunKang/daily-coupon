@@ -3,6 +3,7 @@
     package="com.example.ccswwf.dailycoupon">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
         android:allowBackup="true"
@@ -28,7 +29,9 @@
         <activity android:name=".CouponCompleteActivity" />
         <activity android:name=".PrivatePolicyActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".MembershipApplyActivity"></activity>
+        <activity android:name=".MembershipApplyActivity" />
+        <activity android:name=".TermsActivity" />
+        <activity android:name=".LoginActivity"></activity>
     </application>
 
 </manifest>

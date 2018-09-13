@@ -1,7 +1,6 @@
 package com.example.ccswwf.dailycoupon;
 
-import android.content.ContentValues;
-import android.os.AsyncTask;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -9,11 +8,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import org.json.JSONObject;
-
 public class MainActivity extends AppCompatActivity {
-
-    public static int membershipActive;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,52 +34,12 @@ public class MainActivity extends AppCompatActivity {
         mTab.getTabAt(2).setIcon(R.drawable.ic_mypage);
         mTab.getTabAt(3).setIcon(R.drawable.ic_more);
 
-        try {
-            ContentValues values = new ContentValues();
-            values.put("user_id", "kjy1341@naver.com");
-            ActiveMembershipCheckTask task = new ActiveMembershipCheckTask(values);
-            task.execute();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        SharedPreferences userInformation = getSharedPreferences("user", 0);
+        SharedPreferences.Editor editor = userInformation.edit();
+
+        editor.putString("user_id", "");
 
     }
 
-    private class ActiveMembershipCheckTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/active-membership-check";
-        ContentValues values;
-
-        ActiveMembershipCheckTask(ContentValues values) {
-            this.values = values;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected String doInBackground(Void... params) {
-            String result;
-            RequestHttpURLConnection requestHttpURLConnection = new RequestHttpURLConnection();
-            result = requestHttpURLConnection.request(url, values);
-            return result;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-
-            try {
-                JSONObject resultObject = new JSONObject(result);
-                if (resultObject.getInt("active") == 1) {
-                    membershipActive = 1;
-                } else {
-                    membershipActive = 0;
-                }
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }
