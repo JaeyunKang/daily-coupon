@@ -33,7 +33,9 @@
         <activity android:name=".TermsActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".AlertActivity"></activity>
+        <activity android:name=".AlertActivity" />
+        <activity android:name=".BirthActivity" />
+        <activity android:name=".GenderActivity"></activity>
     </application>
 
 </manifest>

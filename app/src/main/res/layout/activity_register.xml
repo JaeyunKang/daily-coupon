@@ -31,15 +31,32 @@
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/user_id"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:drawableLeft="@drawable/ic_id"
-                android:drawablePadding="10dp"
-                android:hint="이메일"
-                android:textSize="14dp" />
+                android:layout_marginTop="30dp">
+
+                <EditText
+                    android:id="@+id/user_id"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginRight="10dp"
+                    android:drawableLeft="@drawable/ic_id"
+                    android:drawablePadding="10dp"
+                    android:hint="이메일"
+                    android:textSize="14dp" />
+
+                <Button
+                    android:id="@+id/email_check"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/gray_stroke_bg"
+                    android:text="확인"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/user_password"
@@ -70,9 +87,11 @@
                     android:id="@+id/phone_number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="2"
-                    android:hint="휴대폰 번호 (-없이 입력해주세요)"
+                    android:drawableLeft="@drawable/ic_phone"
+                    android:drawablePadding="10dp"
+                    android:hint="휴대폰 번호 ( - 없이 입력)"
                     android:textSize="14dp" />
 
                 <Button
@@ -95,8 +114,10 @@
                     android:id="@+id/confirm_number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="2"
+                    android:drawableLeft="@drawable/ic_phone"
+                    android:drawablePadding="10dp"
                     android:hint="인증 번호 여섯 자리"
                     android:textSize="14dp" />
 
@@ -185,7 +206,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp">
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="50dp">
 
                 <CheckBox
                     android:id="@+id/check_alert"
