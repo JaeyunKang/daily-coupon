@@ -115,36 +115,7 @@
             android:background="#CCC"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp">
-
-            <ImageView
-                android:src="@drawable/ic_qa"
-                android:layout_gravity="center"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="10dp"/>
-
-            <TextView
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="자주 묻는 질문"/>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginBottom="5dp"
-            android:background="#CCC"/>
-
-        <LinearLayout
+            android:id="@+id/layout_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"

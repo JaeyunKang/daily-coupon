@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ccswwf.dailycoupon">
+    package="com.daypon.ccswwf.dailycoupon">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.android.vending.BILLING" />
@@ -35,7 +35,10 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AlertActivity" />
         <activity android:name=".BirthActivity" />
-        <activity android:name=".GenderActivity"></activity>
+        <activity android:name=".GenderActivity" />
+        <activity android:name=".MembershipApplyCompleteActivity" />
+        <activity android:name=".RegisterCompleteActivity" />
+        <activity android:name=".GooglePaymentCancelActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GooglePaymentCancelActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="정기결제 해지방법"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Android 인앱 결제 (Google Play결제) 를 이용하시는 회원님은 아래를 참고해 정기구독을 해제할 수 있습니다."
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="[주의]"
+            android:textColor="#F00"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Google Play의 사양에따라서 다음 갱신일 1일전에 정기구독이 자동적으로 갱신되는 경우가 있습니다."
+            android:textColor="#F00"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="갱신 시기나 아래의 절차에 관한 자세한 안내에 대해서는 Google사로 문의해주시기 바랍니다."
+            android:textColor="#F00"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="1. Google Play스토어를 엽니다."
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="2. 메뉴 > 계정 > 구독을 탭해주세요."
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="3. Daypon에 표시된 취소를 탭해주세요.
+구독에 표시되는 날짜가 갱신날입니다. 취소일이라는 표시가 없는 경우 구독 (청구)는 자동으로 갱신됩니다. 화면에 표시된 갱신날의 24시간 전까지 구독취소를 해주시면 표시된 갱신날까지 유료서비스를 이용할 수 있고 취소일에 자동으로 회원정보가 전환됩니다."
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="4. 취소일 : 20XX년XX월XX일이라는 표시가 있으면 구독취소가 완료된 상태입니다."
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+    </LinearLayout>
+
+
+</ScrollView>

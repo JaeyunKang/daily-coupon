@@ -5,14 +5,112 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
-    tools:context=".AlertActivity">
+    tools:context=".PrivatePolicyActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="혜택알림"
-        android:textColor="#000"
-        android:textSize="15dp"
-        android:layout_marginBottom="5dp"/>
+        android:padding="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="마케팅 수신 동의"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="목적 - 광고성 정보 전송"
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="항목 - 휴대전화번호"
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="보유기간 - 회원탈퇴 또는 개인정보 유효기간 도래 시까지 보관. 단, 관계 법령에 따라 회원님의 개인정보를 보존 하여야 하는 경우 해당 법령에서 정한 기간까지 보관이 가능합니다. "
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="* 회원님은 광고 수신에 대한 동의를 거부하실 권리가 있으며, 동의 거부 시에도 데일리샷 서비스 이용이 가능합니다"
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="* 유효기간이라 함은 일정기간(1년) 서비스를 잉요하지 않은 경우로 탈퇴 등의 조치가 적용됩니다"
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="** 관계법령이라 함은 다음에 해당하는 경우를 말합니다."
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="가. 통신사실확인자료를 제공할때 필요한 로그기록자료, IP주소 등 3개월(통신비밀보호법)"
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="나. 계약 또는 청약철회 등에 관한 기록 : 5년(전자상거래법)"
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="다. 대금결제 및 재화 등의 공급에 관한 기록 : 5년(전자상거래법)"
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="라. 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년(전자상거래법)"
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="마. 신용정보의 수집·처리 및 이용 등에 관한 기록 : 3년(신용정보의 이용 및 보호에 관한 법률)"
+            android:textColor="#000"
+            android:textSize="12dp"/>
+
+    </LinearLayout>
+
+
 </ScrollView>

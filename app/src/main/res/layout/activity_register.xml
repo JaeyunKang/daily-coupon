@@ -91,7 +91,7 @@
                     android:layout_weight="2"
                     android:drawableLeft="@drawable/ic_phone"
                     android:drawablePadding="10dp"
-                    android:hint="휴대폰 번호 ( - 없이 입력)"
+                    android:hint="휴대폰 번호 ( - 제외)"
                     android:textSize="14dp" />
 
                 <Button
