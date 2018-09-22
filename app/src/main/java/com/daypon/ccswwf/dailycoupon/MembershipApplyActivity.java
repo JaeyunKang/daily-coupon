@@ -84,6 +84,8 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
         task.execute();
     }
 
+
+
     @Override
     public void onBillingError(int errorCode, @Nullable Throwable error) {
         if (errorCode != Constants.BILLING_RESPONSE_RESULT_USER_CANCELED) {

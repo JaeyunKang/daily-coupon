@@ -16,11 +16,7 @@
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ShopActivity" />
         <activity
@@ -28,7 +24,13 @@
             android:theme="@style/BottomDialogTheme" />
         <activity android:name=".CouponCompleteActivity" />
         <activity android:name=".PrivatePolicyActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MembershipApplyActivity" />
         <activity android:name=".TermsActivity" />
         <activity android:name=".LoginActivity" />
