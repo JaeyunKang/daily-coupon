@@ -15,9 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/SplashTheme">
-
-        </activity>
+            android:theme="@style/SplashTheme" />
         <activity android:name=".ShopActivity" />
         <activity
             android:name=".CouponPopupActivity"
@@ -40,7 +38,11 @@
         <activity android:name=".GenderActivity" />
         <activity android:name=".MembershipApplyCompleteActivity" />
         <activity android:name=".RegisterCompleteActivity" />
-        <activity android:name=".GooglePaymentCancelActivity"></activity>
+        <activity android:name=".GooglePaymentCancelActivity" />
+        <activity android:name=".FindIdActivity" />
+        <activity android:name=".FindPasswordActivity" />
+        <activity android:name=".FindIdCompleteActivity" />
+        <activity android:name=".SetPasswordActivity"></activity>
     </application>
 
 </manifest>

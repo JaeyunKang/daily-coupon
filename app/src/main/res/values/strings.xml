@@ -3,7 +3,8 @@
 
     <string name="terms"><u>이용약관</u></string>
     <string name="register"><u>회원가입하기</u></string>
-    <string name="find_id_password"><u>아이디/비밀번호 찾기</u></string>
+    <string name="find_id"><u>아이디 찾기</u></string>
+    <string name="find_password"><u>비밀번호 찾기</u></string>
     <string name="show_contents"><u>내용보기</u></string>
 
     <string name="terms0101">서비스 이용 약관(이하 ‘약관’이라 함)은 ‘데이폰’ (이하 ‘회사’라 함)가 제공하는 ‘데이폰(DAYPON)’을 포함한 관련 서비스(이하 ‘서비스’)를 이용함에 있어 ‘회사’와 ‘회원’(제 2조에서 정의합니다)의 권리, 의무, 책임사항 및 ‘회원’의 ‘서비스’ 이용절차에 관한 사항을 규정함을 목적으로 합니다.</string>

@@ -60,13 +60,26 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
                 if (!termsCheck.isChecked()) {
                     Toast.makeText(MembershipApplyActivity.this, "동의가 필요합니다.", Toast.LENGTH_LONG).show();
                     return;
-                } else if (bp.isPurchased(productId)) {
-                    bp.consumePurchase(productId);
                 } else {
-                    bp.purchase(MembershipApplyActivity.this, productId);
+                    bp.subscribe(MembershipApplyActivity.this, productId);
                 }
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (!bp.handleActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (bp != null) {
+            bp.release();
+        }
+        super.onDestroy();
     }
 
     @Override
@@ -83,8 +96,6 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
         MembershipApplyTask task = new MembershipApplyTask(values);
         task.execute();
     }
-
-
 
     @Override
     public void onBillingError(int errorCode, @Nullable Throwable error) {

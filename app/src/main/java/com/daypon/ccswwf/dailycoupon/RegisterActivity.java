@@ -340,7 +340,7 @@ public class RegisterActivity extends AppCompatActivity {
                 editor.putString("user_id", userId.getText().toString());
                 editor.commit();
 
-                Intent genderActivity = new Intent(getApplicationContext(), GenderActivity.class);
+                Intent genderActivity = new Intent(RegisterActivity.this, GenderActivity.class);
                 startActivity(genderActivity);
                 finish();
 

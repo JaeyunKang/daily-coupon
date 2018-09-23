@@ -22,6 +22,9 @@ public class LoginActivity extends AppCompatActivity {
 
     TextView registerButton;
 
+    TextView findIdButton;
+    TextView findPasswordButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
         passwordText = (EditText) findViewById(R.id.user_password);
         loginButton = (TextView) findViewById(R.id.login_btn);
         registerButton = (TextView) findViewById(R.id.btn_register);
+        findIdButton = (TextView) findViewById(R.id.btn_find_id);
+        findPasswordButton = (TextView) findViewById(R.id.btn_find_password);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +65,22 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent registerActivity = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(registerActivity);
+            }
+        });
+
+        findIdButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent findIdActivity = new Intent(LoginActivity.this, FindIdActivity.class);
+                startActivity(findIdActivity);
+            }
+        });
+
+        findPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent findPasswordActivity = new Intent(LoginActivity.this, FindPasswordActivity.class);
+                startActivity(findPasswordActivity);
             }
         });
 

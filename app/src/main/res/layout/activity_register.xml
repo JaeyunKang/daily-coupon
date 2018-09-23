@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF">
+    android:background="#FFF"
+    tools:context=".RegisterActivity">
 
 
     <ScrollView
@@ -19,8 +19,7 @@
             android:layout_height="wrap_content"
             android:background="#FFF"
             android:orientation="vertical"
-            android:padding="30dp"
-            tools:context=".RegisterActivity">
+            android:padding="30dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -236,7 +235,6 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:id="@+id/btn_register"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
