@@ -174,14 +174,14 @@ public class PageMypage extends Fragment {
                             if (compare <= 0) {
                                 if (membership.getPayMethod().equals("google")) {
                                     mValidateRangeText.setText(membership.getEndDate() + "까지 유효합니다");
-                                    mCancleMembershopLayout.setVisibility(View.VISIBLE);
-                                    mCancleMembershopLayout.setOnClickListener(new View.OnClickListener() {
+                                    mCancleMembershopLayout.setVisibility(View.GONE);
+                                    /*mCancleMembershopLayout.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
                                             Intent googlePaymentCancelActivity = new Intent(getActivity(), GooglePaymentCancelActivity.class);
                                             startActivity(googlePaymentCancelActivity);
                                         }
-                                    });
+                                    });*/
                                     mBillAccountChangeLayout.setVisibility(View.GONE);
                                     mApplyMembershipLayout.setVisibility(View.GONE);
                                 } else if (membership.getPayMethod().equals("kakao")) {

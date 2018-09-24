@@ -123,6 +123,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.commit();
 
                     Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                    mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(mainActivity);
                     finish();
                 }

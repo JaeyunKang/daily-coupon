@@ -112,6 +112,7 @@ public class CouponPopupActivity extends AppCompatActivity {
             Intent couponCompleteActivity = new Intent(getApplicationContext(), CouponCompleteActivity.class);
             couponCompleteActivity.putExtra("coupon", this.coupon);
             startActivity(couponCompleteActivity);
+            finish();
         }
     }
 }

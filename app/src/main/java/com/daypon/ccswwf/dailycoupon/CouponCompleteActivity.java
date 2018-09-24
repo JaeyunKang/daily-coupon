@@ -48,11 +48,20 @@ public class CouponCompleteActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                    mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(mainActivity);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+        mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(mainActivity);
     }
 }

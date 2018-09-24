@@ -20,9 +20,19 @@ public class RegisterCompleteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent mainActivity = new Intent(RegisterCompleteActivity.this, MainActivity.class);
+                mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                mainActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(mainActivity);
-                finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent mainActivity = new Intent(RegisterCompleteActivity.this, MainActivity.class);
+        mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        mainActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(mainActivity);
     }
 }

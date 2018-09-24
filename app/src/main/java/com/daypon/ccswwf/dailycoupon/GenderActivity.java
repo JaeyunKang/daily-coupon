@@ -113,4 +113,13 @@ public class GenderActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent mainActivity = new Intent(GenderActivity.this, MainActivity.class);
+        mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        mainActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(mainActivity);
+    }
 }

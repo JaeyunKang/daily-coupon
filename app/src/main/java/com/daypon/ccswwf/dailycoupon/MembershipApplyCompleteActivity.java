@@ -20,9 +20,17 @@ public class MembershipApplyCompleteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent mainActivity = new Intent(MembershipApplyCompleteActivity.this, MainActivity.class);
+                mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(mainActivity);
-                finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent mainActivity = new Intent(MembershipApplyCompleteActivity.this, MainActivity.class);
+        mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(mainActivity);
     }
 }

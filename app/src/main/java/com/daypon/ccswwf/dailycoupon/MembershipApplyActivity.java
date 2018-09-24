@@ -28,7 +28,7 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
 
     private BillingProcessor bp;
     SkuDetails skuDetails;
-    String productId = "membership3900";
+    String productId = "membership3900_purchase";
 
     String userId;
 
@@ -53,7 +53,6 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
         termsCheck = (CheckBox) findViewById(R.id.terms_check);
 
         membershipApplyBtn = (LinearLayout) findViewById(R.id.membership_apply_btn);
-        //membershipApplyBtnKakao = (LinearLayout) findViewById(R.id.membership_apply_btn_kakao);
         membershipApplyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,7 +60,20 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
                     Toast.makeText(MembershipApplyActivity.this, "동의가 필요합니다.", Toast.LENGTH_LONG).show();
                     return;
                 } else {
-                    bp.subscribe(MembershipApplyActivity.this, productId);
+                    bp.purchase(MembershipApplyActivity.this, productId);
+                }
+            }
+        });
+
+        membershipApplyBtnKakao = (LinearLayout) findViewById(R.id.membership_apply_btn_kakao);
+        membershipApplyBtnKakao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!termsCheck.isChecked()) {
+                    Toast.makeText(MembershipApplyActivity.this, "동의가 필요합니다.", Toast.LENGTH_LONG).show();
+                    return;
+                } else {
+                    bp.purchase(MembershipApplyActivity.this, productId);
                 }
             }
         });
@@ -84,15 +96,16 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
 
     @Override
     public void onBillingInitialized() {
-        skuDetails = bp.getSubscriptionListingDetails(productId);
+        skuDetails = bp.getPurchaseListingDetails(productId);
     }
 
     @Override
     public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
         ContentValues values = new ContentValues();
         values.put("user_id", userId);
-        values.put("price", skuDetails.priceLong);
+        values.put("price", skuDetails.priceValue);
         values.put("pay_method", "google");
+        values.put("token", details.purchaseInfo.purchaseData.purchaseToken);
         MembershipApplyTask task = new MembershipApplyTask(values);
         task.execute();
     }
@@ -138,6 +151,7 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
             try {
                 Intent completeActivity = new Intent(MembershipApplyActivity.this, MembershipApplyCompleteActivity.class);
                 startActivity(completeActivity);
+                finish();
             } catch(Exception e) {
                 e.printStackTrace();
             }
