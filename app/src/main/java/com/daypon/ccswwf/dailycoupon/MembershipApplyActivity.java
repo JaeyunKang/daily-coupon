@@ -3,6 +3,7 @@ package com.daypon.ccswwf.dailycoupon;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,6 +19,8 @@ import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.Constants;
 import com.anjlab.android.iab.v3.SkuDetails;
 import com.anjlab.android.iab.v3.TransactionDetails;
+
+import org.json.JSONObject;
 
 public class MembershipApplyActivity extends AppCompatActivity implements BillingProcessor.IBillingHandler {
 
@@ -73,7 +76,10 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
                     Toast.makeText(MembershipApplyActivity.this, "동의가 필요합니다.", Toast.LENGTH_LONG).show();
                     return;
                 } else {
-                    bp.purchase(MembershipApplyActivity.this, productId);
+                    ContentValues values = new ContentValues();
+                    values.put("user_id", userId);
+                    KakaoPayTask task = new KakaoPayTask(values);
+                    task.execute();
                 }
             }
         });
@@ -152,6 +158,42 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
                 Intent completeActivity = new Intent(MembershipApplyActivity.this, MembershipApplyCompleteActivity.class);
                 startActivity(completeActivity);
                 finish();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private class KakaoPayTask extends AsyncTask<Void, Void, String> {
+
+        String url = "http://prography.org/kakaopay";
+        ContentValues values;
+
+        KakaoPayTask(ContentValues values) {
+            this.values = values;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+            String result;
+            RequestHttpURLConnection requestHttpURLConnection = new RequestHttpURLConnection();
+            result = requestHttpURLConnection.request(url, values);
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            try {
+                JSONObject resultObject = new JSONObject(result);
+                String directUrl = resultObject.getString("direct_url");
+                Intent kakaoPayIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(directUrl));
+                startActivity(kakaoPayIntent);
             } catch(Exception e) {
                 e.printStackTrace();
             }
