@@ -200,7 +200,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private class EmailCheckTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/email-check";
+        String url = "http://daypon.com/email-check";
         ContentValues values;
 
         EmailCheckTask(ContentValues values) {
@@ -237,7 +237,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private class PhoneNumberCheckTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/phone-number-check";
+        String url = "http://daypon.com/phone-number-check";
         ContentValues values;
 
         PhoneNumberCheckTask(ContentValues values) {
@@ -272,7 +272,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private class ConfirmNumberCheckTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/confirm-number-check";
+        String url = "http://daypon.com/confirm-number-check";
         ContentValues values;
 
         ConfirmNumberCheckTask(ContentValues values) {
@@ -309,7 +309,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private class RegisterTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/register";
+        String url = "http://daypon.com/register";
         ContentValues values;
 
         RegisterTask(ContentValues values) {

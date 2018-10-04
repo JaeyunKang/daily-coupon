@@ -33,7 +33,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private class VersionCheckTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/version-check";
+        String url = "http://daypon.com/version-check";
         ContentValues values;
 
         VersionCheckTask(ContentValues values) {

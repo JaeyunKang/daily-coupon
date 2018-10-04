@@ -83,7 +83,7 @@ public class CouponPopupActivity extends AppCompatActivity {
 
     private class CouponUseTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/coupon-use";
+        String url = "http://daypon.com/coupon-use";
         ContentValues values;
         Coupon coupon;
 

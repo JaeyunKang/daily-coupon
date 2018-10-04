@@ -60,7 +60,7 @@ public class PageShops extends Fragment {
 
     private class ShopRenderTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/shop";
+        String url = "http://daypon.com/shop";
         ContentValues values;
 
         ShopRenderTask(ContentValues values) {

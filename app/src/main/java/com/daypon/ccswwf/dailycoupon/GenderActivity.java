@@ -79,7 +79,7 @@ public class GenderActivity extends AppCompatActivity {
 
     private class GenderUpdateTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/gender-update";
+        String url = "http://daypon.com/gender-update";
         ContentValues values;
 
         GenderUpdateTask(ContentValues values) {

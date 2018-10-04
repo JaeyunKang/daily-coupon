@@ -166,7 +166,7 @@ public class ShopActivity extends AppCompatActivity {
 
     private class CouponCheckTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/coupon-check";
+        String url = "http://daypon.com/coupon-check";
         ContentValues values;
 
         CouponCheckTask(ContentValues values) {

@@ -131,7 +131,7 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
 
     private class MembershipApplyTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/membership-apply";
+        String url = "http://daypon.com/membership-apply";
         ContentValues values;
 
         MembershipApplyTask(ContentValues values) {
@@ -166,7 +166,7 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
 
     private class KakaoPayTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/kakaopay";
+        String url = "http://daypon.com/kakaopay";
         ContentValues values;
 
         KakaoPayTask(ContentValues values) {

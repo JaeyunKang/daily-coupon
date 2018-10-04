@@ -111,7 +111,7 @@ public class PageHome extends Fragment {
 
     private class ActiveMembershipCheckTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/active-membership-check";
+        String url = "http://daypon.com/active-membership-check";
         ContentValues values;
 
         ActiveMembershipCheckTask(ContentValues values) {

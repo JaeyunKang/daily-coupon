@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private class LoginTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/login";
+        String url = "http://daypon.com/login";
         ContentValues values;
 
         LoginTask(ContentValues values) {

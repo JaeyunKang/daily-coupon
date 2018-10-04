@@ -271,7 +271,7 @@ public class BirthActivity extends AppCompatActivity {
 
     private class BirthUpdateTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/birth-update";
+        String url = "http://daypon.com/birth-update";
         ContentValues values;
 
         BirthUpdateTask(ContentValues values) {

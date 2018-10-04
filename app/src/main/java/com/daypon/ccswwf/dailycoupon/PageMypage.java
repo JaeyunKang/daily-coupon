@@ -110,7 +110,7 @@ public class PageMypage extends Fragment {
 
     private class MembershipRenderTask extends AsyncTask<Void, Void, String> {
 
-        String url = "http://prography.org/membership-check";
+        String url = "http://daypon.com/membership-check";
         ContentValues values;
 
         MembershipRenderTask(ContentValues values) {
