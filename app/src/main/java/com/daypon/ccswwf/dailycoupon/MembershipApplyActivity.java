@@ -63,6 +63,9 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
                     Toast.makeText(MembershipApplyActivity.this, "동의가 필요합니다.", Toast.LENGTH_LONG).show();
                     return;
                 } else {
+                    if (bp.isPurchased(productId)) {
+                        bp.consumePurchase(productId);
+                    }
                     bp.purchase(MembershipApplyActivity.this, productId);
                 }
             }
@@ -89,6 +92,16 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (!bp.handleActivityResult(requestCode, resultCode, data)) {
             super.onActivityResult(requestCode, resultCode, data);
+        }
+
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case 3000:
+                    Intent completeActivity = new Intent(MembershipApplyActivity.this, MembershipApplyCompleteActivity.class);
+                    startActivity(completeActivity);
+                    finish();
+                    break;
+            }
         }
     }
 
@@ -128,6 +141,7 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
     public void onPurchaseHistoryRestored() {
 
     }
+
 
     private class MembershipApplyTask extends AsyncTask<Void, Void, String> {
 
@@ -193,7 +207,7 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
                 JSONObject resultObject = new JSONObject(result);
                 String directUrl = resultObject.getString("direct_url");
                 Intent kakaoPayIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(directUrl));
-                startActivity(kakaoPayIntent);
+                startActivityForResult(kakaoPayIntent, 3000);
             } catch(Exception e) {
                 e.printStackTrace();
             }
