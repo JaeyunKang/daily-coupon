@@ -40,11 +40,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:layout_marginTop="30dp"
+                android:src="@drawable/logo_gradient"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"/>
+
             <TextView
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:text="데이폰 프리미엄 멤버십"
                 android:textColor="#000"
                 android:textSize="18dp"
@@ -87,7 +94,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="10dp"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorAccent">
 
             <LinearLayout
                 android:layout_width="wrap_content"

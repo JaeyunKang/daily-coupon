@@ -51,20 +51,20 @@
                 android:paddingRight="30dp">
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="5dp"
+                    android:background="@drawable/round_bg"
+                    android:orientation="vertical"
                     android:paddingBottom="5dp"
-                    android:background="@drawable/round_bg">
+                    android:paddingTop="5dp">
 
                     <TextView
                         android:id="@+id/text_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
                         android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginTop="2dp"
                         android:textColor="#000"
                         android:textSize="13dp" />
 
@@ -75,11 +75,11 @@
                         android:layout_marginBottom="4dp">
 
                         <ImageView
-                            android:src="@drawable/subway_2"
                             android:layout_width="10dp"
                             android:layout_height="10dp"
+                            android:layout_gravity="center_vertical"
                             android:layout_marginRight="3dp"
-                            android:layout_gravity="center_vertical"/>
+                            android:src="@drawable/subway_2" />
 
                         <TextView
                             android:id="@+id/text_location"
@@ -94,17 +94,17 @@
                         android:id="@+id/text_description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
                         android:layout_gravity="center_horizontal"
-                        android:textSize="10dp"/>
+                        android:layout_marginBottom="4dp"
+                        android:textSize="10dp" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="10dp"
                         android:layout_marginBottom="5dp"
-                        android:background="#CCC"/>
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="#CCC" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -112,12 +112,12 @@
                         android:layout_marginBottom="10dp">
 
                         <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_weight="1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp">
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -125,7 +125,7 @@
                                 android:layout_gravity="center_horizontal"
                                 android:text="오늘의 영업시간"
                                 android:textColor="@color/colorPrimary"
-                                android:textSize="10dp"/>
+                                android:textSize="10dp" />
 
                             <TextView
                                 android:id="@+id/text_today_opening"
@@ -133,22 +133,22 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:text="PM 6:00~AM 3:00"
-                                android:textSize="10dp"/>
+                                android:textSize="10dp" />
 
                         </LinearLayout>
 
                         <View
-                            android:layout_height="match_parent"
                             android:layout_width="1dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
-                            android:background="#CCC"/>
+                            android:layout_marginTop="3dp"
+                            android:background="#CCC" />
 
                         <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_weight="1"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -156,14 +156,14 @@
                                 android:layout_gravity="center_horizontal"
                                 android:text="방문"
                                 android:textColor="@color/colorPrimary"
-                                android:textSize="10dp"/>
+                                android:textSize="10dp" />
 
                             <TextView
                                 android:id="@+id/text_visit_num"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
-                                android:textSize="10dp"/>
+                                android:textSize="10dp" />
 
                         </LinearLayout>
 
@@ -173,20 +173,20 @@
                         android:id="@+id/text_notice_wrap"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="3dp"
                         android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="3dp"
                         android:visibility="gone">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="4dp"
                             android:layout_gravity="center_vertical"
+                            android:layout_marginRight="4dp"
                             android:background="@drawable/round_orange_bg"
                             android:text="Notice"
                             android:textColor="#FFF"
                             android:textSize="8dp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/text_notice"
@@ -194,7 +194,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:textSize="10dp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -203,11 +203,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:layout_marginBottom="10dp"
+                    android:layout_marginTop="15dp"
                     android:text="Coupon 선택"
                     android:textColor="#000"
-                    android:textSize="10dp"/>
+                    android:textSize="10dp" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_coupon"
@@ -219,15 +219,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp">
 
                     <ImageView
-                        android:src="@drawable/naver_logo"
                         android:layout_width="10dp"
                         android:layout_height="10dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginRight="5dp"
-                        android:layout_gravity="center_vertical"/>
+                        android:src="@drawable/naver_logo" />
 
                     <TextView
                         android:id="@+id/text_naver_url"
@@ -236,76 +236,76 @@
                         android:layout_gravity="center_vertical"
                         android:text="매장 정보 자세히 보기"
                         android:textColor="#86CF7B"
-                        android:textSize="10dp"/>
+                        android:textSize="10dp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp">
 
                     <ImageView
-                        android:src="@drawable/ic_clock"
                         android:layout_width="10dp"
                         android:layout_height="10dp"
+                        android:layout_marginRight="5dp"
                         android:layout_marginTop="2dp"
-                        android:layout_marginRight="5dp" />
+                        android:src="@drawable/ic_clock" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/text_opening_hours1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="10dp"/>
+                            android:textSize="10dp" />
 
                         <TextView
                             android:id="@+id/text_opening_hours2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="10dp"/>
+                            android:textSize="10dp" />
 
                         <TextView
                             android:id="@+id/text_opening_hours3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="10dp"/>
+                            android:textSize="10dp" />
 
                         <TextView
                             android:id="@+id/text_opening_hours4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="10dp"/>
+                            android:textSize="10dp" />
 
                         <TextView
                             android:id="@+id/text_opening_hours5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="10dp"/>
+                            android:textSize="10dp" />
 
                         <TextView
                             android:id="@+id/text_opening_hours6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="10dp"/>
+                            android:textSize="10dp" />
 
                         <TextView
                             android:id="@+id/text_opening_hours7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="10dp"/>
+                            android:textSize="10dp" />
 
                         <TextView
                             android:id="@+id/text_opening_notice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:visibility="gone"
-                            android:textSize="10dp"/>
+                            android:textSize="10dp"
+                            android:visibility="gone" />
 
                     </LinearLayout>
 
@@ -314,24 +314,31 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginTop="10dp">
 
                     <ImageView
-                        android:src="@drawable/ic_loc"
                         android:layout_width="10dp"
                         android:layout_height="10dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginRight="5dp"
-                        android:layout_gravity="center_vertical"/>
+                        android:src="@drawable/ic_loc" />
 
                     <TextView
                         android:id="@+id/text_address"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:textSize="10dp"/>
+                        android:textSize="10dp" />
 
                 </LinearLayout>
+
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="30dp"/>
 
             </LinearLayout>
 

@@ -103,6 +103,8 @@ public class PageShops extends Fragment {
                     shop.setNotice(shopObject.getString("notice"));
                     shop.setNaverUrl(shopObject.getString("naver_url"));
                     shop.setAddress(shopObject.getString("address"));
+                    shop.setLat(shopObject.getDouble("lat"));
+                    shop.setLng(shopObject.getDouble("lng"));
 
                     ArrayList<Coupon> coupons = new ArrayList<>();
                     for (int c = 0; c < shopCouponArray.length(); c++) {
@@ -132,4 +134,5 @@ public class PageShops extends Fragment {
 
         }
     }
+
 }

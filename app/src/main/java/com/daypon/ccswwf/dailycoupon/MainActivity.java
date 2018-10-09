@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         PagerAdapter mPagerAdapter = new PagerAdapter(
                 getSupportFragmentManager()
         );
+
+        final TextView toolbarTitle = (TextView) findViewById(R.id.toolbar_title);
 
         ViewPager mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mViewPager.setAdapter(mPagerAdapter);
@@ -38,6 +41,36 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = userInformation.edit();
 
         editor.putString("user_id", "");
+
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case 0:
+                        toolbarTitle.setText("홈");
+                        break;
+                    case 1:
+                        toolbarTitle.setText("제휴점찾기");
+                        break;
+                    case 2:
+                        toolbarTitle.setText("마이페이지");
+                        break;
+                    case 3:
+                        toolbarTitle.setText("더보기");
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
     }
 

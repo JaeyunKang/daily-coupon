@@ -19,11 +19,17 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ShopActivity extends AppCompatActivity {
+public class ShopActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     public ImageView mImageShop;
     public TextView mNameText;
@@ -42,6 +48,10 @@ public class ShopActivity extends AppCompatActivity {
     private CouponAdapter mAdapter;
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
+
+    private GoogleMap mMap;
+
+    private Shop shop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +92,7 @@ public class ShopActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
-        final Shop shop = (Shop) getIntent().getSerializableExtra("Shop");
+        shop = (Shop) getIntent().getSerializableExtra("Shop");
 
         TextView toolBarTitle = (TextView) findViewById(R.id.toolbar_title);
         toolBarTitle.setText(shop.getName());
@@ -149,6 +159,19 @@ public class ShopActivity extends AppCompatActivity {
             mOpeningNoticeText.setText(shop.getOpeningNotice());
         }
 
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        LatLng latlng = new LatLng(shop.getLat(), shop.getLng());
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(latlng).title(shop.getName());
+        mMap.addMarker(markerOptions);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, 16));
     }
 
     @Override
