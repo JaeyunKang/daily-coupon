@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -184,10 +185,10 @@ public class PageMypage extends Fragment {
                                     });*/
                                     mBillAccountChangeLayout.setVisibility(View.GONE);
                                     mApplyMembershipLayout.setVisibility(View.GONE);
-                                } else if (membership.getPayMethod().equals("kakao")) {
+                                } else if (membership.getPayMethod().equals("kakaopay")) {
                                     mValidateRangeText.setText(membership.getEndDate() + "까지 유효합니다");
-                                    mCancleMembershopLayout.setVisibility(View.VISIBLE);
-                                    mBillAccountChangeLayout.setVisibility(View.VISIBLE);
+                                    mCancleMembershopLayout.setVisibility(View.GONE);
+                                    mBillAccountChangeLayout.setVisibility(View.GONE);
                                     mApplyMembershipLayout.setVisibility(View.GONE);
                                 }
                             } else {

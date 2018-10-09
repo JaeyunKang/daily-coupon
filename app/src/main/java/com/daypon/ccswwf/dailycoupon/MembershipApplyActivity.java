@@ -93,15 +93,18 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
         if (!bp.handleActivityResult(requestCode, resultCode, data)) {
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
 
-        if (resultCode == RESULT_OK) {
-            switch (requestCode) {
-                case 3000:
-                    Intent completeActivity = new Intent(MembershipApplyActivity.this, MembershipApplyCompleteActivity.class);
-                    startActivity(completeActivity);
-                    finish();
-                    break;
-            }
+    @Override
+    public void onResume() {
+        super.onResume();
+        try {
+            ContentValues values = new ContentValues();
+            values.put("user_id", userId);
+            ActiveMembershipCheckTask task = new ActiveMembershipCheckTask(values);
+            task.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -207,7 +210,46 @@ public class MembershipApplyActivity extends AppCompatActivity implements Billin
                 JSONObject resultObject = new JSONObject(result);
                 String directUrl = resultObject.getString("direct_url");
                 Intent kakaoPayIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(directUrl));
-                startActivityForResult(kakaoPayIntent, 3000);
+                startActivity(kakaoPayIntent);
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private class ActiveMembershipCheckTask extends AsyncTask<Void, Void, String> {
+
+        String url = "http://daypon.com/active-membership-check";
+        ContentValues values;
+
+        ActiveMembershipCheckTask(ContentValues values) {
+            this.values = values;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+            String result;
+            RequestHttpURLConnection requestHttpURLConnection = new RequestHttpURLConnection();
+            result = requestHttpURLConnection.request(url, values);
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            try {
+                JSONObject resultObject = new JSONObject(result);
+                if (resultObject.getInt("active") == 1) {
+                    Intent completeActivity = new Intent(MembershipApplyActivity.this, MembershipApplyCompleteActivity.class);
+                    startActivity(completeActivity);
+                    finish();
+                }
+
             } catch(Exception e) {
                 e.printStackTrace();
             }
