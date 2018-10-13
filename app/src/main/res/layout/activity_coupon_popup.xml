@@ -164,7 +164,7 @@
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:padding="10dp"
-            android:background="@drawable/round_orange_bg"
+            android:background="@drawable/round_cyan_bg"
             android:text="직원 확인"
             android:textColor="#FFF"
             android:textSize="15dp"

@@ -38,7 +38,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopViewHolder> {
         Glide.with(context).load(shop.getImgUrl()).apply(options).into(holder.mImageShop);
 
         holder.mNameText.setText(shop.getName());
-        holder.mCouponText.setText("Coupon: " + shop.getCoupons().get(0).getName() + " 등 " + String.valueOf(shop.getCoupons().size()) + "가지 중 선택");
+        holder.mCouponText.setText(shop.getCoupons().get(0).getName() + " 등 " + String.valueOf(shop.getCoupons().size()) + "가지 중 선택");
 
         String visitInfo;
         if (shop.getVisitNum() == 0) {
