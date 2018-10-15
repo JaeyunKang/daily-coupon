@@ -60,7 +60,7 @@ public class CouponAdapter extends RecyclerView.Adapter<CouponViewHolder> {
             });
         } else {
             holder.mCouponReceiveText.setText("쿠폰 바로 받기");
-            holder.mCouponReceiveText.setBackgroundResource(R.drawable.round_orange_bg);
+            holder.mCouponReceiveText.setBackgroundResource(R.drawable.round_cyan_bg);
 
             final SharedPreferences userInformation = context.getSharedPreferences("user", 0);
             final String userId = userInformation.getString("user_id", "");

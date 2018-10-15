@@ -3,18 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="7dp">
 
     <ImageView
         android:id="@+id/img_shop"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="140dp" />
 
     <RelativeLayout
-        android:layout_width="315dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="190dp"
-        android:background="@drawable/round_bg">
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="140dp"
+        android:background="#FFF">
 
         <LinearLayout
             android:orientation="vertical"
@@ -22,7 +23,7 @@
             android:layout_alignParentStart="true"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="3dp"
             android:layout_centerVertical="true">
 
             <TextView
@@ -39,43 +40,27 @@
                 android:layout_marginTop="5dp"
                 android:textSize="7dp"/>
 
+            <TextView
+                android:id="@+id/text_visit_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="7dp"/>
+
         </LinearLayout>
 
         <TextView
-            android:id="@+id/text_visit_num"
+            android:id="@+id/text_location"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="3dp"
             android:layout_centerVertical="true"
             android:textColor="@color/colorPrimary"
-            android:textSize="7dp"/>
+            android:textSize="10dp"/>
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="205dp">
-
-        <ImageView
-            android:src="@drawable/subway_2"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="15dp"
-            android:layout_height="15dp"/>
-
-        <TextView
-            android:id="@+id/text_location"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:textSize="7dp"/>
-
-    </LinearLayout>
 
 </RelativeLayout>

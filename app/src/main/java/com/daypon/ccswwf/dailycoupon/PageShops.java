@@ -4,11 +4,16 @@ import android.content.ContentValues;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.smarteist.autoimageslider.SliderLayout;
+import com.smarteist.autoimageslider.SliderView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,6 +25,8 @@ public class PageShops extends Fragment {
     private ShopAdapter mAdapter;
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
+
+    private SliderLayout sliderLayout;
 
     public static PageShops newInstance() {
         Bundle args = new Bundle();
@@ -40,7 +47,7 @@ public class PageShops extends Fragment {
         View view = inflater.inflate(R.layout.fragment_page_shops, container, false);
         mAdapter = new ShopAdapter();
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_shop);
-        mLayoutManager = new LinearLayoutManager(getActivity());
+        mLayoutManager = new GridLayoutManager(getActivity(), 2);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         try {
@@ -54,8 +61,35 @@ public class PageShops extends Fragment {
 
         mRecyclerView.setAdapter(mAdapter);
 
+        sliderLayout = view.findViewById(R.id.imageSlider);
+        sliderLayout.setIndicatorAnimation(SliderLayout.Animations.FILL);
+        sliderLayout.setScrollTimeInSec(1);
+
         return view;
 
+    }
+
+    private void setSliderViews() {
+        for (int i = 0; i < 3; i++) {
+
+            SliderView sliderView = new SliderView(getActivity());
+
+            switch (i) {
+                case 0:
+                    sliderView.setImageUrl(mAdapter.shops.get(0).getImgUrl());
+                    break;
+                case 1:
+                    sliderView.setImageUrl(mAdapter.shops.get(1).getImgUrl());
+                    break;
+                case 2:
+                    sliderView.setImageUrl(mAdapter.shops.get(2).getImgUrl());
+                    break;
+            }
+
+            sliderView.setImageScaleType(ImageView.ScaleType.CENTER_CROP);
+
+            sliderLayout.addSliderView(sliderView);
+        }
     }
 
     private class ShopRenderTask extends AsyncTask<Void, Void, String> {
@@ -127,7 +161,11 @@ public class PageShops extends Fragment {
                     shop.setOpeningNotice(shopObject.getString("opening_notice"));
                     shop.setSubImgNum(shopObject.getInt("sub_img_num"));
                     mAdapter.add(shop);
+
                 }
+
+                setSliderViews();
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
