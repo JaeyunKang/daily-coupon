@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+def GOOGLE_GEO_API_KEY = '"' + GoogleGeoApiKey + '"' ?: '"GOOGLE GEO API KEY"'
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -9,6 +11,10 @@ android {
         versionCode 10
         versionName "1.9"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders = [
+                GOOGLE_GEO_API_KEY : GOOGLE_GEO_API_KEY
+        ]
     }
     buildTypes {
         release {
