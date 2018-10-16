@@ -1,6 +1,7 @@
 package com.daypon.ccswwf.dailycoupon;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,9 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.smarteist.autoimageslider.SliderLayout;
-import com.smarteist.autoimageslider.SliderView;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -26,7 +28,8 @@ public class PageShops extends Fragment {
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
 
-    private SliderLayout sliderLayout;
+    private ImageView recentShopView;
+    private TextView recentShopText;
 
     public static PageShops newInstance() {
         Bundle args = new Bundle();
@@ -50,6 +53,9 @@ public class PageShops extends Fragment {
         mLayoutManager = new GridLayoutManager(getActivity(), 2);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+        recentShopView = view.findViewById(R.id.recentShopView);
+        recentShopText = view.findViewById(R.id.recentShopText);
+
         try {
             ContentValues values = new ContentValues();
             values.put("location", "서울대");
@@ -61,35 +67,8 @@ public class PageShops extends Fragment {
 
         mRecyclerView.setAdapter(mAdapter);
 
-        sliderLayout = view.findViewById(R.id.imageSlider);
-        sliderLayout.setIndicatorAnimation(SliderLayout.Animations.FILL);
-        sliderLayout.setScrollTimeInSec(1);
-
         return view;
 
-    }
-
-    private void setSliderViews() {
-        for (int i = 0; i < 3; i++) {
-
-            SliderView sliderView = new SliderView(getActivity());
-
-            switch (i) {
-                case 0:
-                    sliderView.setImageUrl(mAdapter.shops.get(0).getImgUrl());
-                    break;
-                case 1:
-                    sliderView.setImageUrl(mAdapter.shops.get(1).getImgUrl());
-                    break;
-                case 2:
-                    sliderView.setImageUrl(mAdapter.shops.get(2).getImgUrl());
-                    break;
-            }
-
-            sliderView.setImageScaleType(ImageView.ScaleType.CENTER_CROP);
-
-            sliderLayout.addSliderView(sliderView);
-        }
     }
 
     private class ShopRenderTask extends AsyncTask<Void, Void, String> {
@@ -164,7 +143,19 @@ public class PageShops extends Fragment {
 
                 }
 
-                setSliderViews();
+                RequestOptions options = new RequestOptions();
+                options.centerCrop();
+                Glide.with(getActivity()).load(mAdapter.shops.get(0).getImgUrl()).apply(options).into(recentShopView);
+                recentShopText.setText(mAdapter.shops.get(0).getName());
+                recentShopView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent shopActivity = new Intent(getActivity(), ShopActivity.class);
+
+                        shopActivity.putExtra("Shop", mAdapter.shops.get(0));
+                        startActivity(shopActivity);
+                    }
+                });
 
             } catch (Exception e) {
                 e.printStackTrace();

@@ -8,6 +8,7 @@ public class Coupon implements Serializable{
     private String imgUrl;
     private String name;
     private String shopName;
+    private String useDate;
 
     public int getId() {
         return id;
@@ -37,5 +38,13 @@ public class Coupon implements Serializable{
 
     public void setShopName(String shopName) {
         this.shopName = shopName;
+    }
+
+    public String getUseDate() {
+        return useDate;
+    }
+
+    public void setUseDate(String useDate) {
+        this.useDate = useDate;
     }
 }

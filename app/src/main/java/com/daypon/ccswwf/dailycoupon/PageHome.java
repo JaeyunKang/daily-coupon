@@ -88,7 +88,6 @@ public class PageHome extends Fragment {
 
     private void setSliderViews() {
         for (int i = 0; i < 3; i++) {
-
             SliderView sliderView = new SliderView(getActivity());
 
             switch (i) {

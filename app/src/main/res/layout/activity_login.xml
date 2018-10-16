@@ -48,7 +48,7 @@
         android:layout_marginLeft="30dp"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        android:background="@drawable/orange_stroke_bg"
+        android:background="@drawable/cyan_stroke_bg"
         android:gravity="center"
         android:text="로그인하기"
         android:textColor="@color/colorPrimary"

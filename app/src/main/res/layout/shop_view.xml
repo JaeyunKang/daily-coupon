@@ -57,8 +57,9 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="3dp"
             android:layout_centerVertical="true"
-            android:textColor="@color/colorPrimary"
-            android:textSize="10dp"/>
+            android:textColor="@color/colorSub"
+            android:textSize="10dp"
+            android:textStyle="bold"/>
 
     </RelativeLayout>
 

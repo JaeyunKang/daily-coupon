@@ -29,7 +29,8 @@
                 android:layout_gravity="center"
                 android:text="Daypon"
                 android:textSize="15sp"
-                android:textColor="#FFF" />
+                android:textColor="#FFF"
+                android:textStyle="bold"/>
 
         </android.support.v7.widget.Toolbar>
 
