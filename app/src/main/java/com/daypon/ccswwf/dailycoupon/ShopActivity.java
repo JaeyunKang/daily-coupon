@@ -17,21 +17,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.smarteist.autoimageslider.SliderLayout;
+import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ShopActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    public ImageView mImageShop;
+    public SliderLayout mImageShop;
     public TextView mNameText;
     public TextView mLocationText;
     public TextView mDescriptionText;
@@ -65,7 +65,7 @@ public class ShopActivity extends AppCompatActivity implements OnMapReadyCallbac
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
 
-        mImageShop = (ImageView) findViewById(R.id.img_shop);
+        mImageShop = findViewById(R.id.img_shop);
         mNameText = (TextView) findViewById(R.id.text_name);
         mLocationText = (TextView) findViewById(R.id.text_location);
         mDescriptionText = (TextView) findViewById(R.id.text_description);
@@ -75,16 +75,6 @@ public class ShopActivity extends AppCompatActivity implements OnMapReadyCallbac
         mNoticeText = (TextView) findViewById(R.id.text_notice);
         mNaverUrlText = (TextView) findViewById(R.id.text_naver_url);
         mAddressText = (TextView) findViewById(R.id.text_address);
-
-        mOpeningHoursText = new ArrayList<>();
-        mOpeningHoursText.add((TextView) findViewById(R.id.text_opening_hours1));
-        mOpeningHoursText.add((TextView) findViewById(R.id.text_opening_hours2));
-        mOpeningHoursText.add((TextView) findViewById(R.id.text_opening_hours3));
-        mOpeningHoursText.add((TextView) findViewById(R.id.text_opening_hours4));
-        mOpeningHoursText.add((TextView) findViewById(R.id.text_opening_hours5));
-        mOpeningHoursText.add((TextView) findViewById(R.id.text_opening_hours6));
-        mOpeningHoursText.add((TextView) findViewById(R.id.text_opening_hours7));
-        mOpeningNoticeText = findViewById(R.id.text_opening_notice);
 
         mAdapter = new CouponAdapter();
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_coupon);
@@ -97,9 +87,11 @@ public class ShopActivity extends AppCompatActivity implements OnMapReadyCallbac
         TextView toolBarTitle = (TextView) findViewById(R.id.toolbar_title);
         toolBarTitle.setText(shop.getName());
 
-        RequestOptions options = new RequestOptions();
-        options.centerCrop();
-        Glide.with(this).load(shop.getImgUrl()).apply(options).into(mImageShop);
+        mImageShop.setIndicatorAnimation(SliderLayout.Animations.FILL);
+        mImageShop.setScrollTimeInSec(1);
+
+        setShopSliderViews(shop.getImgUrl());
+
         mNameText.setText(shop.getName());
         mLocationText.setText(shop.getLocation());
         mDescriptionText.setText(shop.getDescription());
@@ -147,18 +139,6 @@ public class ShopActivity extends AppCompatActivity implements OnMapReadyCallbac
             e.printStackTrace();
         }
 
-        mOpeningHoursText.get(0).setText("[월요일] " + shop.getOpenings().get(0));
-        mOpeningHoursText.get(1).setText("[화요일] " + shop.getOpenings().get(1));
-        mOpeningHoursText.get(2).setText("[수요일] " + shop.getOpenings().get(2));
-        mOpeningHoursText.get(3).setText("[목요일] " + shop.getOpenings().get(3));
-        mOpeningHoursText.get(4).setText("[금요일] " + shop.getOpenings().get(4));
-        mOpeningHoursText.get(5).setText("[토요일] " + shop.getOpenings().get(5));
-        mOpeningHoursText.get(6).setText("[일요일] " + shop.getOpenings().get(6));
-        if (!shop.getOpeningNotice().equals("")) {
-            mOpeningNoticeText.setVisibility(View.VISIBLE);
-            mOpeningNoticeText.setText(shop.getOpeningNotice());
-        }
-
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
@@ -184,6 +164,37 @@ public class ShopActivity extends AppCompatActivity implements OnMapReadyCallbac
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void setShopSliderViews(String url) {
+        for (int i = 0; i < 6; i++) {
+            SliderView sliderView = new SliderView(this);
+
+            switch (i) {
+                case 0:
+                    sliderView.setImageUrl(url.substring(0, url.length() - 4) + String.valueOf(i + 1) + ".jpg");
+                    break;
+                case 1:
+                    sliderView.setImageUrl(url.substring(0, url.length() - 4) + String.valueOf(i + 1) + ".jpg");
+                    break;
+                case 2:
+                    sliderView.setImageUrl(url.substring(0, url.length() - 4) + String.valueOf(i + 1) + ".jpg");
+                    break;
+                case 3:
+                    sliderView.setImageUrl(url.substring(0, url.length() - 4) + String.valueOf(i + 1) + ".jpg");
+                    break;
+                case 4:
+                    sliderView.setImageUrl(url.substring(0, url.length() - 4) + String.valueOf(i + 1) + ".jpg");
+                    break;
+                case 5:
+                    sliderView.setImageUrl(url.substring(0, url.length() - 4) + String.valueOf(i + 1) + ".jpg");
+                    break;
+            }
+
+            sliderView.setImageScaleType(ImageView.ScaleType.CENTER_CROP);
+
+            mImageShop.addSliderView(sliderView);
         }
     }
 
